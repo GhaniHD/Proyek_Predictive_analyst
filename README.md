@@ -58,6 +58,7 @@ Dataset yang digunakan adalah **Walmart Store Sales Forecasting** yang tersedia 
 
 ### Visualisasi
 ![Gambar 2: Tren penjualan mingguan menunjukkan pola musiman](images/image-2.png)
+
 Pola Keseluruhan (General Trend):
 Secara umum, dari awal 2010 hingga akhir 2012, tidak terlihat tren naik atau turun yang dominan dan konsisten. Garis cenderung berfluktuasi di sekitar nilai rata-rata tertentu, dengan puncak dan lembah yang berulang. Ini menunjukkan bahwa penjualan mingguan relatif stabil dalam jangka panjang selama periode ini, tanpa pertumbuhan atau penurunan yang signifikan secara keseluruhan.
 
