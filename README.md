@@ -104,17 +104,16 @@ Dataset yang digunakan adalah **Walmart Store Sales Forecasting** yang tersedia 
 ### Metrik Evaluasi
 
 1. **Mean Absolute Error (MAE)**  
-   \[
-   MAE = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|
-   \]
+MAE mengukur rata-rata nilai absolut selisih antara prediksi dengan nilai aktual.
+  ![alt text](images/image-7.png)
+Dimana 𝑦 𝑖 y i ​ adalah nilai aktual dan 𝑦 ^ 𝑖 y ^ ​ i ​ adalah nilai prediksi.
 
-2. **Root Mean Squared Error (RMSE)**  
-   \[
-   RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2}
-   \]
+2. **Root Mean Squared Error (RMSE)**
+RMSE memberikan penalti lebih besar terhadap error yang besar dengan menghitung akar dari rata-rata kuadrat error.
+   ![alt text](images/image-8.png)
+RMSE sering digunakan dalam forecasting karena lebih sensitif terhadap deviasi besar.
 
 ### Hasil Evaluasi
-
 ![Gambar 7: Perbandingan metrik evaluasi MAE dan RMSE antara model Prophet dan SARIMAX](images/image.png)
 
 ### Kesimpulan
