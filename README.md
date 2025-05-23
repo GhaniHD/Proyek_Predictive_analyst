@@ -124,11 +124,15 @@ Meskipun ada beberapa titik yang berada sedikit di luar rentang perkiraan (menun
 
 ![Gambar 6: Hasil forecasting model SARIMAX pada periode test](images/image-6.png)
 
-- Model statistik berbasis ARIMA dengan faktor musiman.
-- Parameter yang digunakan: order=(1,1,1), seasonal_order=(1,1,1,52).
-- Forecast dilakukan pada periode test.
+Model SARIMAX telah digunakan untuk memprediksi pola penjualan mingguan. Grafik "SARIMA Forecast" menampilkan data yang digunakan untuk melatih model (Train), data penjualan aktual yang ingin diprediksi (Actual), dan hasil prediksi model (Forecast).
 
-![Gambar 6: Hasil forecasting model SARIMAX pada periode test](images/image-6.png)
+- Data Latih (Biru):
+Model dilatih menggunakan data penjualan historis yang menunjukkan pola musiman berulang, seperti peningkatan penjualan di akhir tahun.
+
+- Performa Prediksi (Hijau vs. Oranye):
+Pada awal periode prediksi (sekitar Agustus-September 2012), model SARIMAX (garis hijau) cukup baik dalam mengikuti tren penjualan aktual (garis oranye).
+Namun, model ini gagal memprediksi puncak penjualan yang signifikan di akhir tahun 2012. Garis prediksi (hijau) menunjukkan nilai yang jauh lebih rendah dibandingkan dengan penjualan aktual (oranye) yang melonjak drastis pada periode liburan.
+
 
 ---
 
