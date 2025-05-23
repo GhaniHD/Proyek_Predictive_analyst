@@ -1,147 +1,133 @@
-Tentu, saya tambahkan keterangan penamaan gambar (caption) di setiap bagian sesuai dengan permintaanmu tanpa menghapus referensi gambar. Berikut versi revisinya dengan penamaan gambar yang jelas:
-
----
-
 # Laporan Proyek Machine Learning - Ghani Husna Darmawan
 
 ## Domain Proyek
 
-Proyek ini berfokus pada permasalahan yang terjadi di sektor retail, khususnya pada prediksi penjualan mingguan di Walmart, yang merupakan salah satu jaringan ritel terbesar dan paling berpengaruh di Amerika Serikat. Prediksi penjualan merupakan aspek yang sangat krusial bagi perusahaan retail, karena dapat memberikan gambaran yang lebih akurat untuk pengelolaan stok barang, pengaturan pengadaan, hingga penyusunan strategi pemasaran yang tepat sasaran. Dengan prediksi yang baik, perusahaan dapat mengantisipasi permintaan konsumen secara lebih efisien dan mengurangi risiko kelebihan atau kekurangan stok.
+Proyek ini berfokus pada permasalahan di sektor retail, khususnya dalam memprediksi penjualan mingguan di Walmart, salah satu jaringan ritel terbesar di Amerika Serikat. Prediksi penjualan sangat penting untuk membantu perusahaan dalam pengelolaan stok, pengadaan barang, dan strategi pemasaran yang lebih efektif. 
 
-Menurut laporan dari McKinsey & Company, penerapan metode prediksi permintaan yang akurat dapat membantu perusahaan retail meningkatkan margin keuntungan hingga kisaran 2-3% dan sekaligus mengurangi tingkat overstock hingga 20% \[1]. Hal ini membuktikan bahwa pengembangan model prediksi penjualan bukan hanya sebagai alat analisis data, melainkan juga berkontribusi nyata dalam peningkatan performa bisnis dan daya saing perusahaan di pasar.
+Menurut laporan dari McKinsey & Company, perusahaan yang mampu menerapkan prediksi permintaan dengan baik dapat meningkatkan margin keuntungan hingga 2-3% dan mengurangi kelebihan stok hingga 20% \[1]. Oleh karena itu, pengembangan model prediksi penjualan merupakan bagian penting dalam implementasi Machine Learning di dunia bisnis nyata.
+
+---
 
 ## Business Understanding
 
 ### Problem Statements
 
-* Bagaimanakah pola dan tren penjualan mingguan yang terjadi di Walmart selama periode waktu yang dianalisis?
-* Sejauh mana hubungan atau korelasi antara variabel-variabel numerik seperti suhu rata-rata, harga bahan bakar, indeks harga konsumen (CPI), dan tingkat pengangguran terhadap volume penjualan mingguan?
-* Apakah model Machine Learning mampu menghasilkan prediksi penjualan mingguan dengan tingkat akurasi yang dapat diandalkan untuk pengambilan keputusan bisnis?
+- Bagaimana tren penjualan mingguan di Walmart selama periode waktu tertentu?
+- Bagaimana korelasi antara fitur numerik seperti suhu, harga bahan bakar, CPI, dan pengangguran terhadap penjualan mingguan?
+- Apakah model Machine Learning dapat memprediksi penjualan mingguan secara akurat?
 
 ### Goals
 
-* Melakukan analisis mendalam terhadap pola tren dan faktor musiman yang terdapat dalam data penjualan Walmart.
-* Mengidentifikasi dan mengukur pengaruh variabel-variabel eksternal yang dapat mempengaruhi penjualan mingguan.
-* Mengembangkan dan menguji model prediksi time series yang mampu memberikan estimasi penjualan mingguan pada periode mendatang dengan tingkat kesalahan seminimal mungkin.
+- Menganalisis pola tren dan musiman pada data penjualan Walmart.
+- Mengidentifikasi faktor-faktor yang memengaruhi volume penjualan mingguan.
+- Membangun model time series untuk memprediksi penjualan mingguan di masa depan.
 
 ### Solution Statements
 
-* Mengimplementasikan dua pendekatan algoritma time series forecasting, yaitu Prophet dari Facebook dan model statistik SARIMAX (Seasonal AutoRegressive Integrated Moving Average with eXogenous regressors).
-* Menentukan model terbaik berdasarkan metrik evaluasi utama, yaitu Root Mean Squared Error (RMSE) dan Mean Absolute Error (MAE), yang mengukur seberapa jauh hasil prediksi menyimpang dari nilai aktual.
+- Menggunakan dua algoritma time series forecasting: Prophet dan SARIMAX.
+- Memilih model terbaik berdasarkan metrik evaluasi RMSE dan MAE.
+
+---
 
 ## Data Understanding
 
-Dataset yang digunakan adalah **Walmart Store Sales Forecasting**, tersedia di platform Kaggle melalui tautan berikut:
+Dataset yang digunakan adalah **Walmart Store Sales Forecasting** yang tersedia di Kaggle:  
 [https://www.kaggle.com/datasets/yasserh/walmart-dataset](https://www.kaggle.com/datasets/yasserh/walmart-dataset)
 
 ### Variabel yang Digunakan:
 
-| Variabel       | Deskripsi                                    |
-| -------------- | -------------------------------------------- |
-| `Store`        | ID unik masing-masing toko                   |
-| `Date`         | Tanggal transaksi penjualan                  |
-| `Weekly_Sales` | Total penjualan dalam satu minggu            |
-| `Holiday_Flag` | Indikator apakah minggu tersebut libur       |
-| `Temperature`  | Suhu rata-rata pada minggu tersebut          |
-| `Fuel_Price`   | Harga bahan bakar rata-rata mingguan         |
-| `CPI`          | Consumer Price Index (indeks harga konsumen) |
-| `Unemployment` | Tingkat pengangguran                         |
+| Variabel      | Deskripsi                              |
+|---------------|--------------------------------------|
+| `Store`       | ID unik masing-masing toko            |
+| `Date`        | Tanggal transaksi penjualan           |
+| `Weekly_Sales`| Total penjualan mingguan              |
+| `Holiday_Flag`| Indikator hari libur                  |
+| `Temperature` | Suhu rata-rata mingguan               |
+| `Fuel_Price`  | Harga bahan bakar                     |
+| `CPI`         | Consumer Price Index                  |
+| `Unemployment`| Tingkat pengangguran                  |
 
-### Eksplorasi Awal:
+### Eksplorasi Awal
 
-<<<<<<< HEAD
-* Dataset memiliki total 6.435 baris dan 8 kolom variabel.
-* Tidak terdapat missing value yang signifikan sehingga proses pembersihan data lebih fokus pada penanganan outlier.
-* Dari analisis visual boxplot ditemukan adanya outlier pada variabel `Weekly_Sales`, yang kemudian dilakukan penanganan dengan metode Interquartile Range (IQR) untuk menghilangkan nilai ekstrem agar model tidak bias.
+- Dataset terdiri dari 6.435 baris dan 8 kolom.
+- Tidak terdapat missing value.
+- Ditemukan beberapa outlier pada kolom `Weekly_Sales` yang dihilangkan menggunakan metode IQR.
 
-![Gambar 1: Boxplot untuk mendeteksi outlier pada variabel Weekly\_Sales](images/image-1.png)
-=======
-* Dataset terdiri dari 6435 baris dan 8 kolom.
-* Tidak terdapat missing value.
-![alt text](images/image-1.png)
-* Ditemukan beberapa outlier pada kolom `Weekly_Sales` yang kemudian dihilangkan menggunakan metode IQR.
+![Gambar 1: Boxplot untuk mendeteksi outlier pada variabel Weekly_Sales](images/image-1.png)
 
->>>>>>> fc8cff6fba4dededac01221c1a73e4b67d54a8f3
+### Visualisasi
 
-### Visualisasi:
-
-* Plot garis tren penjualan mingguan memperlihatkan adanya pola musiman dan tren naik turun yang khas.
+- Plot tren total penjualan mingguan memperlihatkan pola musiman.
 
 ![Gambar 2: Tren penjualan mingguan menunjukkan pola musiman](images/image-2.png)
 
-* Heatmap korelasi antar variabel numerik mengindikasikan hubungan yang lemah hingga sedang antara fitur-fitur tersebut dengan variabel target penjualan.
+- Heatmap korelasi menunjukkan hubungan lemah antara variabel numerik dan penjualan.
 
-![Gambar 3: Heatmap korelasi antara variabel numerik dengan Weekly\_Sales](images/image-3.png)
+![Gambar 3: Heatmap korelasi antara variabel numerik dengan Weekly_Sales](images/image-3.png)
+
+---
 
 ## Data Preparation
 
-* Kolom `Date` dikonversi ke tipe data datetime agar memudahkan pemrosesan time series.
-* Data penjualan mingguan diakumulasikan berdasarkan tanggal untuk membentuk satu seri waktu (time series) yang homogen.
-* Kolom hasil agregasi diubah namanya menjadi `ds` (tanggal) dan `y` (nilai target) sesuai format yang diperlukan oleh algoritma Prophet.
-* Data diurutkan berdasarkan tanggal secara kronologis.
-* Data dibagi menjadi data latih dan data uji, dengan 12 minggu terakhir dijadikan data uji untuk validasi prediksi.
+- Konversi kolom `Date` menjadi format datetime.
+- Agregasi total `Weekly_Sales` berdasarkan `Date` untuk membentuk time series tunggal.
+- Rename kolom menjadi `ds` dan `y` agar sesuai format input Prophet.
+- Urutkan data berdasarkan tanggal.
+- Split data untuk evaluasi: 12 minggu terakhir sebagai data test.
 
 ![Gambar 4: Data yang sudah disiapkan dan diurutkan berdasarkan tanggal dalam format Prophet](images/image-4.png)
+
+---
 
 ## Modeling
 
 ### Model 1: Prophet
 
-* Prophet adalah model additive forecasting yang dirancang untuk menangani tren non-linear dan pola musiman yang kompleks secara otomatis.
-* Model ini diimplementasikan tanpa melakukan hyperparameter tuning secara ekstensif untuk melihat performa dasar dari metode tersebut.
-* Forecasting dilakukan untuk periode 12 minggu ke depan berdasarkan data latih yang tersedia.
+- Model additive dari Facebook Prophet cocok untuk tren dan musiman.
+- Tidak dilakukan hyperparameter tuning.
+- Forecasting dilakukan untuk 12 minggu ke depan.
 
 ![Gambar 5: Hasil forecasting model Prophet selama 12 minggu ke depan](images/image-5.png)
 
 ### Model 2: SARIMAX
 
-* SARIMAX adalah model statistik yang menggabungkan ARIMA dengan komponen musiman dan variabel eksogen (jika ada).
-* Parameter yang dipilih adalah order=(1,1,1) untuk bagian ARIMA, dan seasonal\_order=(1,1,1,52) untuk menangkap pola musiman tahunan (52 minggu).
-* Prediksi dilakukan pada data uji dengan periode yang sama yaitu 12 minggu terakhir.
+- Model statistik berbasis ARIMA dengan faktor musiman.
+- Parameter yang digunakan: order=(1,1,1), seasonal_order=(1,1,1,52).
+- Forecast dilakukan pada periode test.
 
 ![Gambar 6: Hasil forecasting model SARIMAX pada periode test](images/image-6.png)
+
+---
 
 ## Evaluation
 
 ### Metrik Evaluasi
 
-Dua metrik evaluasi utama digunakan untuk menilai performa model prediksi:
-
-1. **Mean Absolute Error (MAE)**
-   MAE mengukur rata-rata nilai absolut selisih antara prediksi dengan nilai aktual.
-
-   $$
+1. **Mean Absolute Error (MAE)**  
+   \[
    MAE = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|
-   $$
+   \]
 
-   Dimana $y_i$ adalah nilai aktual dan $\hat{y}_i$ adalah nilai prediksi.
-
-2. **Root Mean Squared Error (RMSE)**
-   RMSE memberikan penalti lebih besar terhadap error yang besar dengan menghitung akar dari rata-rata kuadrat error.
-
-   $$
+2. **Root Mean Squared Error (RMSE)**  
+   \[
    RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2}
-   $$
+   \]
 
-   RMSE sering digunakan dalam forecasting karena lebih sensitif terhadap deviasi besar.
-
-### Hasil Evaluasi:
+### Hasil Evaluasi
 
 ![Gambar 7: Perbandingan metrik evaluasi MAE dan RMSE antara model Prophet dan SARIMAX](images/image.png)
 
-Dari hasil evaluasi, model SARIMAX menunjukkan nilai MAE dan RMSE yang lebih rendah dibandingkan Prophet, yang berarti prediksi SARIMAX lebih dekat ke nilai aktual dan lebih stabil dalam menghadapi fluktuasi musiman.
+### Kesimpulan
 
-### Kesimpulan:
-
-Model SARIMAX dengan parameter seasonal\_order yang tepat terbukti memberikan performa terbaik dalam memprediksi penjualan mingguan Walmart dibandingkan dengan Prophet, sehingga model ini direkomendasikan untuk digunakan dalam implementasi prediksi jangka pendek. Pendekatan statistik ini efektif menangkap komponen musiman serta tren data yang ada.
+Model **SARIMAX** memberikan performa lebih baik dibandingkan Prophet berdasarkan metrik MAE dan RMSE, sehingga dipilih sebagai model terbaik untuk prediksi penjualan mingguan Walmart.
 
 ---
 
-**Referensi:**
-\[1] McKinsey & Company. (2019). How retailers can drive profitable growth through demand forecasting.
+## Referensi
 
-*Catatan: Visualisasi tren, boxplot outlier, dan heatmap korelasi dapat dilihat pada notebook proyek yang menyertai laporan ini.*
+\[1] McKinsey & Company. (2019). *How retailers can drive profitable growth through demand forecasting*.
 
 ---
 
-Kalau kamu mau, saya bisa juga bantu membuat penamaan gambar dengan format berbeda (misalnya nomor halaman atau format APA), tinggal bilang saja!
+*Catatan: Visualisasi tren, boxplot outlier, dan heatmap korelasi tersedia dalam notebook proyek.*
+
