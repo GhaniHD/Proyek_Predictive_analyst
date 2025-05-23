@@ -104,13 +104,25 @@ Secara keseluruhan, heatmap ini memungkinkan kita untuk dengan cepat melihat seb
 
 ### Model 1: Prophet
 
-- Model additive dari Facebook Prophet cocok untuk tren dan musiman.
-- Tidak dilakukan hyperparameter tuning.
-- Forecasting dilakukan untuk 12 minggu ke depan.
-
 ![Gambar 5: Hasil forecasting model Prophet selama 12 minggu ke depan](images/image-5.png)
 
+Model Prophet telah digunakan untuk memprediksi pola penjualan mingguan di masa depan berdasarkan data historis. Hasilnya dapat dilihat pada grafik "Prophet Forecast", dengan penjelasan sebagai berikut:
+
+- Garis Prediksi (Biru Solid):
+Garis biru ini menunjukkan perkiraan penjualan mingguan yang dibuat oleh model.
+Model berhasil menangkap pola penjualan yang berulang setiap tahun, seperti puncak penjualan di akhir tahun (musim liburan) dan penurunan di awal atau pertengahan tahun. Ini menunjukkan model sangat baik dalam memahami "musiman" penjualan kita.
+
+- Area Ketidakpastian (Biru Muda):
+Area biru muda di sekitar garis prediksi adalah "rentang perkiraan". Ini menunjukkan seberapa yakin model terhadap prediksinya.
+Sebagian besar data penjualan aktual (titik hitam) berada dalam rentang ini, yang menandakan bahwa prediksi model cukup akurat.
+
+- Data Penjualan Aktual (Titik Hitam):
+Titik-titik hitam adalah data penjualan mingguan yang sebenarnya terjadi di masa lalu.
+Meskipun ada beberapa titik yang berada sedikit di luar rentang perkiraan (menunjukkan kejadian tak terduga), secara umum model mampu mengikuti fluktuasi penjualan yang terjadi.
+
 ### Model 2: SARIMAX
+
+![Gambar 6: Hasil forecasting model SARIMAX pada periode test](images/image-6.png)
 
 - Model statistik berbasis ARIMA dengan faktor musiman.
 - Parameter yang digunakan: order=(1,1,1), seasonal_order=(1,1,1,52).
