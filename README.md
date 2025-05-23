@@ -61,7 +61,15 @@ Dataset yang digunakan adalah **Walmart Store Sales Forecasting** yang tersedia 
 
 ![Gambar 2: Tren penjualan mingguan menunjukkan pola musiman](images/image-2.png)
 
-- Heatmap korelasi menunjukkan hubungan lemah antara variabel numerik dan penjualan.
+- Weekly_Sales vs. Weekly_Sales: Nilainya 1, seperti yang diharapkan, karena ini adalah korelasi variabel dengan dirinya sendiri.
+- Weekly_Sales vs. Temperature: Korelasinya -0.044. Ini adalah korelasi negatif yang sangat lemah, mendekati nol. Artinya, tidak ada hubungan linier yang signifikan antara penjualan mingguan dan suhu.
+- Weekly_Sales vs. CPI: Korelasinya -0.07. Juga korelasi negatif yang sangat lemah.
+- Temperature vs. CPI: Korelasinya 0.18. Ini menunjukkan korelasi positif yang lemah. Artinya, sedikit peningkatan suhu mungkin sedikit berkorelasi dengan peningkatan CPI, tetapi hubungannya tidak terlalu kuat.
+- CPI vs. Unemployment: Korelasinya -0.3. Ini adalah korelasi negatif moderat. Artinya, ketika CPI meningkat, tingkat pengangguran cenderung sedikit menurun, atau sebaliknya. Ini menunjukkan adanya hubungan linier, meskipun tidak sempurna.
+- Fuel_Price vs. Unemployment: Korelasinya -0.035. Sangat lemah dan mendekati nol.
+
+- Kesimpulan:
+Secara keseluruhan, heatmap ini memungkinkan kita untuk dengan cepat melihat seberapa kuat dan dalam arah apa (positif atau negatif) setiap pasang variabel saling berhubungan secara linier. Ini adalah alat yang sangat berguna dalam analisis data untuk memahami hubungan antar fitur/variabel dalam dataset.
 
 ![Gambar 3: Heatmap korelasi antara variabel numerik dengan Weekly_Sales](images/image-3.png)
 
