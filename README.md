@@ -126,12 +126,16 @@ Secara keseluruhan, heatmap ini memungkinkan kita untuk dengan cepat melihat seb
 
 1. **Mean Absolute Error (MAE)**  
 MAE mengukur rata-rata nilai absolut selisih antara prediksi dengan nilai aktual.
+
   ![alt text](images/image-7.png)
+
 Dimana 𝑦 𝑖 y i ​ adalah nilai aktual dan 𝑦 ^ 𝑖 y ^ ​ i ​ adalah nilai prediksi.
 
-2. **Root Mean Squared Error (RMSE)**
+3. **Root Mean Squared Error (RMSE)**
 RMSE memberikan penalti lebih besar terhadap error yang besar dengan menghitung akar dari rata-rata kuadrat error.
+
    ![alt text](images/image-8.png)
+   
 RMSE sering digunakan dalam forecasting karena lebih sensitif terhadap deviasi besar.
 
 ### Hasil Evaluasi
