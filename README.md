@@ -51,13 +51,26 @@ Dataset yang digunakan adalah **Walmart Store Sales Forecasting** yang tersedia 
 
 - Dataset terdiri dari 6.435 baris dan 8 kolom.
 - Tidak terdapat missing value.
+  
+![Gambar 1: Boxplot untuk mendeteksi outlier pada variabel Weekly_Sales](images/image-1.png)
 - Ditemukan beberapa outlier pada kolom `Weekly_Sales` yang dihilangkan menggunakan metode IQR.
 
-![Gambar 1: Boxplot untuk mendeteksi outlier pada variabel Weekly_Sales](images/image-1.png)
 
 ### Visualisasi
 ![Gambar 2: Tren penjualan mingguan menunjukkan pola musiman](images/image-2.png)
-- Plot tren total penjualan mingguan memperlihatkan pola musiman.
+Pola Keseluruhan (General Trend):
+Secara umum, dari awal 2010 hingga akhir 2012, tidak terlihat tren naik atau turun yang dominan dan konsisten. Garis cenderung berfluktuasi di sekitar nilai rata-rata tertentu, dengan puncak dan lembah yang berulang. Ini menunjukkan bahwa penjualan mingguan relatif stabil dalam jangka panjang selama periode ini, tanpa pertumbuhan atau penurunan yang signifikan secara keseluruhan.
+
+- Pola Musiman (Seasonality):
+Ini adalah pola yang paling jelas dan menonjol dalam grafik ini. Kita dapat melihat fluktuasi yang sangat teratur dan berulang setiap tahunnya:
+
+  - Puncak (Peaks):
+    Ada puncak penjualan yang signifikan yang terjadi pada akhir tahun (sekitar bulan November-Desember) setiap tahunnya (2010, 2011, 2012). Puncak-puncak ini sangat mencolok, terutama     pada akhir 2010 dan akhir 2011/awal 2012, di mana penjualan mencapai level tertinggi. Ini sangat khas untuk penjualan ritel yang dipengaruhi oleh musim liburan (Natal, Tahun Baru).
+
+  - Lembah (Troughs):
+    Sejalan dengan puncak musiman, ada juga lembah penjualan yang terjadi setelah puncak tersebut, biasanya di awal tahun (sekitar Januari-Februari) dan juga di tengah tahun (sekitar       Juli-Agustus). Penjualan cenderung menurun setelah periode liburan dan mungkin mengalami penurunan lagi di musim panas.
+
+
 
 
 ![Gambar 3: Heatmap korelasi antara variabel numerik dengan Weekly_Sales](images/image-3.png)
