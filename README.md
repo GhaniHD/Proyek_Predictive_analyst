@@ -44,8 +44,9 @@ Dataset yang digunakan adalah **Walmart Store Sales Forecasting** yang tersedia 
 
 * Dataset terdiri dari 6435 baris dan 8 kolom.
 * Tidak terdapat missing value.
-* Ditemukan beberapa outlier pada kolom `Weekly_Sales` yang kemudian dihilangkan menggunakan metode IQR.
 ![alt text](images/image-1.png)
+* Ditemukan beberapa outlier pada kolom `Weekly_Sales` yang kemudian dihilangkan menggunakan metode IQR.
+
 
 ### Visualisasi:
 
