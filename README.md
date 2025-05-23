@@ -49,16 +49,19 @@ Dataset yang digunakan adalah **Walmart Store Sales Forecasting**, tersedia di p
 
 ### Eksplorasi Awal:
 
-* Dataset terdiri dari 6435 baris dan 8 kolom.
-* Tidak terdapat missing value.
-![alt text](images/image-1.png)
-* Ditemukan beberapa outlier pada kolom `Weekly_Sales` yang kemudian dihilangkan menggunakan metode IQR.
-
+<<<<<<< HEAD
 * Dataset memiliki total 6.435 baris dan 8 kolom variabel.
 * Tidak terdapat missing value yang signifikan sehingga proses pembersihan data lebih fokus pada penanganan outlier.
 * Dari analisis visual boxplot ditemukan adanya outlier pada variabel `Weekly_Sales`, yang kemudian dilakukan penanganan dengan metode Interquartile Range (IQR) untuk menghilangkan nilai ekstrem agar model tidak bias.
 
 ![Gambar 1: Boxplot untuk mendeteksi outlier pada variabel Weekly\_Sales](images/image-1.png)
+=======
+* Dataset terdiri dari 6435 baris dan 8 kolom.
+* Tidak terdapat missing value.
+![alt text](images/image-1.png)
+* Ditemukan beberapa outlier pada kolom `Weekly_Sales` yang kemudian dihilangkan menggunakan metode IQR.
+
+>>>>>>> fc8cff6fba4dededac01221c1a73e4b67d54a8f3
 
 ### Visualisasi:
 
