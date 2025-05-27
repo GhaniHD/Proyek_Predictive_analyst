@@ -134,15 +134,14 @@ results = model.fit(disp=False)
 Dua metrik digunakan untuk mengevaluasi model:
 - **Mean Absolute Error (MAE)**: Mengukur rata-rata absolut kesalahan prediksi.
   - Formula:  
-    \[
-    MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
-    \]
-    di mana \(y_i\) adalah nilai aktual dan \(\hat{y}_i\) adalah nilai prediksi.
+
+    ![alt text](images/image_9.png)
+
+    di mana ![alt text](images/image-11.png) adalah nilai aktual dan ![alt text](images/image-10.png) adalah nilai prediksi.
 - **Root Mean Squared Error (RMSE)**: Mengukur akar kuadrat rata-rata kesalahan kuadrat, lebih sensitif terhadap outlier.
-  - Formula:  
-    \[
-    RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
-    \]
+  - Formula:
+
+    ![alt text](images/image-12.png)
 
 ### Hasil Evaluasi
 ```
