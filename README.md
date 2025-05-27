@@ -135,7 +135,7 @@ Dua metrik digunakan untuk mengevaluasi model:
 - **Mean Absolute Error (MAE)**: Mengukur rata-rata absolut kesalahan prediksi.
   - Formula:  
 
-    ![alt text](images/image_9.png)
+    ![alt text](images/image-9.png)
 
     di mana ![alt text](images/image-11.png) adalah nilai aktual dan ![alt text](images/image-10.png) adalah nilai prediksi.
 - **Root Mean Squared Error (RMSE)**: Mengukur akar kuadrat rata-rata kesalahan kuadrat, lebih sensitif terhadap outlier.
